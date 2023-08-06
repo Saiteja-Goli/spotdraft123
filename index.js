@@ -10,13 +10,8 @@ const app = express();
 app.use(express.json());
 let secret = "";
 // Local endpoint for receiving events
-app.get("/create",async(req,res)=>{
-  await fetch("https://app.asana.com/api/1.0/webhooks",{
-    method:"POST",
-    headers:{
-      "Authorization":"Bearer 1/1205213038154528:afe486916dbbcc0d0b217913cc19bab9"
-    },
-  })
+app.get("/",async(req,res)=>{
+  res.send("Welcome...")
 })
 app.post("/receiveWebhook", (req, res) => {
   if (req.headers["x-hook-secret"]) {
